@@ -1,7 +1,10 @@
 # ETL python script for LifeSpan 
 
 import os
-import requests 
+import requests
+from env import load_env
+
+load_env() 
 from supabase import create_client, Client
 import time
 import string
@@ -103,12 +106,12 @@ def get_wikipedia_summary(name):
     try:
         # 1. Try Direct Lookup (e.g. "Lion")
         print(f"\tquerying wikipedia with '{name}'")
-        return wikipedia.summary(name, auto_suggest=True)
+        return wikipedia.summary(name, auto_suggest=False)
     except wikipedia.exceptions.PageError:
         # 2. If not found, try adding "animal" (e.g. "Okapi animal")
         try:
             print(f"\tquerying wikipedia with '{name} animal'")
-            return wikipedia.summary(f"{name} animal", auto_suggest=True)
+            return wikipedia.summary(f"{name} animal", auto_suggest=False)
         except: return None
     except wikipedia.exceptions.DisambiguationError as e:
         # 3. If confused (e.g. "Bass"), look for the animal option
@@ -116,9 +119,9 @@ def get_wikipedia_summary(name):
             for option in e.options:
                 if any(x in option.lower() for x in ['animal', 'mammal', 'fish', 'bird']):
                     print(f"\tquerying wikipedia with {name} '{option}'")
-                    return wikipedia.summary(option, auto_suggest=True)
-            print(f"\tquerying wikipedia with {name} '{e.option[0]}'")
-            return wikipedia.summary(e.options[0], auto_suggest=True)
+                    return wikipedia.summary(option, auto_suggest=False)
+            print(f"\tquerying wikipedia with {name} '{e.options[0]}'")
+            return wikipedia.summary(e.options[0], auto_suggest=False)
         except: return None
     except Exception: return None
     

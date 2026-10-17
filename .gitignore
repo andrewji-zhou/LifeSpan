@@ -3,8 +3,10 @@ xcuserdata/
 DerivedData/
 *.xcuserstate
 .env
+__pycache__
 
 # Swift app secrets (copy Secrets.swift.example -> Secrets.swift)
 LifeSpan/Secrets.swift
 
 audit_report.csv
+venv/
