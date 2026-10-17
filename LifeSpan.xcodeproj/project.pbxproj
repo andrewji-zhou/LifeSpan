@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7A000000000000000000000E /* LifeSpanWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7A0000000000000000000002 /* LifeSpanWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0F2F98BF2DD3982C00527E8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,17 +25,42 @@
 			remoteGlobalIDString = 0F2F98B02DD3982A00527E8A;
 			remoteInfo = LifeSpan;
 		};
+		7A000000000000000000000B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F2F98A92DD3982A00527E8A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A0000000000000000000001;
+			remoteInfo = LifeSpanWidget;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0F2F98B12DD3982A00527E8A /* LifeSpan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeSpan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2F98BE2DD3982C00527E8A /* LifeSpanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeSpanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F2F98C82DD3982C00527E8A /* LifeSpanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeSpanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0000000000000000000002 /* LifeSpanWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeSpanWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7A0000000000000000000004 /* Exceptions for "LifeSpan" folder in "LifeSpanWidget" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AnimalViewModel.swift,
+				ContentView.swift,
+				LifeSpanApp.swift,
+				panda.jpg,
+				Secrets.swift.example,
+			);
+			target = 7A0000000000000000000001 /* LifeSpanWidget */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0F2F98B32DD3982A00527E8A /* LifeSpan */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7A0000000000000000000004 /* Exceptions for "LifeSpan" folder in "LifeSpanWidget" target */,
+			);
 			path = LifeSpan;
 			sourceTree = "<group>";
 		};
@@ -45,7 +74,26 @@
 			path = LifeSpanUITests;
 			sourceTree = "<group>";
 		};
+		7A0000000000000000000003 /* LifeSpanWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = LifeSpanWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7A000000000000000000000D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7A000000000000000000000E /* LifeSpanWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0F2F98AE2DD3982A00527E8A /* Frameworks */ = {
@@ -69,6 +117,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A0000000000000000000006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +133,7 @@
 				0F2F98B32DD3982A00527E8A /* LifeSpan */,
 				0F2F98C12DD3982C00527E8A /* LifeSpanTests */,
 				0F2F98CB2DD3982C00527E8A /* LifeSpanUITests */,
+				7A0000000000000000000003 /* LifeSpanWidget */,
 				0F2F98B22DD3982A00527E8A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +144,7 @@
 				0F2F98B12DD3982A00527E8A /* LifeSpan.app */,
 				0F2F98BE2DD3982C00527E8A /* LifeSpanTests.xctest */,
 				0F2F98C82DD3982C00527E8A /* LifeSpanUITests.xctest */,
+				7A0000000000000000000002 /* LifeSpanWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,10 +159,12 @@
 				0F2F98AD2DD3982A00527E8A /* Sources */,
 				0F2F98AE2DD3982A00527E8A /* Frameworks */,
 				0F2F98AF2DD3982A00527E8A /* Resources */,
+				7A000000000000000000000D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7A000000000000000000000C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				0F2F98B32DD3982A00527E8A /* LifeSpan */,
@@ -163,6 +222,30 @@
 			productReference = 0F2F98C82DD3982C00527E8A /* LifeSpanUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7A0000000000000000000001 /* LifeSpanWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A0000000000000000000008 /* Build configuration list for PBXNativeTarget "LifeSpanWidget" */;
+			buildPhases = (
+				7A0000000000000000000010 /* Generate Widget Info.plist */,
+				7A0000000000000000000005 /* Sources */,
+				7A0000000000000000000006 /* Frameworks */,
+				7A0000000000000000000007 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0F2F98B32DD3982A00527E8A /* LifeSpan */,
+				7A0000000000000000000003 /* LifeSpanWidget */,
+			);
+			name = LifeSpanWidget;
+			packageProductDependencies = (
+			);
+			productName = LifeSpanWidget;
+			productReference = 7A0000000000000000000002 /* LifeSpanWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -174,6 +257,9 @@
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					0F2F98B02DD3982A00527E8A = {
+						CreatedOnToolsVersion = 16.3;
+					};
+					7A0000000000000000000001 = {
 						CreatedOnToolsVersion = 16.3;
 					};
 					0F2F98BD2DD3982C00527E8A = {
@@ -203,6 +289,7 @@
 				0F2F98B02DD3982A00527E8A /* LifeSpan */,
 				0F2F98BD2DD3982C00527E8A /* LifeSpanTests */,
 				0F2F98C72DD3982C00527E8A /* LifeSpanUITests */,
+				7A0000000000000000000001 /* LifeSpanWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -229,7 +316,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A0000000000000000000007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A0000000000000000000010 /* Generate Widget Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Widget Info.plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/LifeSpanWidget-Info.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"$DERIVED_FILE_DIR\"\ncat > \"$DERIVED_FILE_DIR/LifeSpanWidget-Info.plist\" <<'PLIST'\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n<dict>\n\t<key>NSExtension</key>\n\t<dict>\n\t\t<key>NSExtensionPointIdentifier</key>\n\t\t<string>com.apple.widgetkit-extension</string>\n\t</dict>\n</dict>\n</plist>\nPLIST\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0F2F98AD2DD3982A00527E8A /* Sources */ = {
@@ -253,6 +369,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7A0000000000000000000005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -265,6 +388,11 @@
 			isa = PBXTargetDependency;
 			target = 0F2F98B02DD3982A00527E8A /* LifeSpan */;
 			targetProxy = 0F2F98C92DD3982C00527E8A /* PBXContainerItemProxy */;
+		};
+		7A000000000000000000000C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A0000000000000000000001 /* LifeSpanWidget */;
+			targetProxy = 7A000000000000000000000B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -512,6 +640,54 @@
 			};
 			name = Release;
 		};
+		7A0000000000000000000009 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(DERIVED_FILE_DIR)/LifeSpanWidget-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = LifeSpan;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = andrew.zhou.me.LifeSpan.LifeSpanWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7A000000000000000000000A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(DERIVED_FILE_DIR)/LifeSpanWidget-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = LifeSpan;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = andrew.zhou.me.LifeSpan.LifeSpanWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -547,6 +723,15 @@
 			buildConfigurations = (
 				0F2F98D92DD3982C00527E8A /* Debug */,
 				0F2F98DA2DD3982C00527E8A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A0000000000000000000008 /* Build configuration list for PBXNativeTarget "LifeSpanWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A0000000000000000000009 /* Debug */,
+				7A000000000000000000000A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

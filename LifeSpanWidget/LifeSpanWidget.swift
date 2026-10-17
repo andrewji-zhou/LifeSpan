@@ -83,45 +83,65 @@ struct LifeSpanWidgetView: View {
 
     private var lifespan: String { entry.animal?.lifespanText ?? "Lifespan unknown" }
 
+    /// Fills whatever space it is given without growing the layout, so there are no letterbox bars.
     private var photo: some View {
-        Group {
+        Color.clear.overlay {
             if let image = entry.image {
                 Image(uiImage: image).resizable().scaledToFill()
             } else {
                 Image("placeholderAnimal").resizable().scaledToFill()
             }
         }
+        .clipped()
     }
 
     // Home screen
 
+    /// The photo is the widget background, so it runs edge to edge. The text sits in the
+    /// system's content margins, which keep it clear of the rounded corners.
     private var small: some View {
-        ZStack(alignment: .bottomLeading) {
-            photo
-            LinearGradient(colors: [.clear, .black.opacity(0.75)], startPoint: .center, endPoint: .bottom)
-            VStack(alignment: .leading, spacing: 1) {
-                Text(entry.animal?.name ?? "LifeSpan").font(.headline).lineLimit(2)
-                Label(lifespan, systemImage: "hourglass").font(.caption2).lineLimit(1)
-            }
-            .foregroundStyle(.white)
-            .padding(10)
+        VStack(alignment: .leading, spacing: 2) {
+            Spacer(minLength: 0)
+            Text(entry.animal?.name ?? "LifeSpan")
+                .font(.headline)
+                .lineLimit(2)
+                .minimumScaleFactor(0.8)
+            Label(lifespan, systemImage: "hourglass")
+                .font(.caption2)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
         }
-        .containerBackground(for: .widget) { Color.black }
+        .foregroundStyle(.white)
+        .shadow(color: .black.opacity(0.6), radius: 3)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .containerBackground(for: .widget) {
+            ZStack {
+                photo
+                LinearGradient(colors: [.clear, .black.opacity(0.7)], startPoint: .center, endPoint: .bottom)
+            }
+        }
     }
 
+    /// The photo is an inset rounded tile, so it stays inside the bezel margins like the text does.
     private var medium: some View {
-        HStack(spacing: 0) {
-            photo.frame(maxWidth: 150, maxHeight: .infinity).clipped()
+        HStack(spacing: 12) {
+            photo
+                .frame(width: 125)
+                .frame(maxHeight: .infinity)
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+
             VStack(alignment: .leading, spacing: 4) {
                 Text("ANIMAL OF THE DAY").font(.caption2.weight(.semibold)).foregroundStyle(.secondary)
-                Text(entry.animal?.name ?? "Open LifeSpan").font(.title3.bold()).lineLimit(2)
+                Text(entry.animal?.name ?? "Open LifeSpan")
+                    .font(.title3.bold())
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.8)
                 Label(lifespan, systemImage: "hourglass").font(.subheadline).foregroundStyle(.green)
                 if let years = entry.animal?.lifespanYears {
                     Text(humanComparison(years)).font(.caption).foregroundStyle(.secondary)
                 }
                 Spacer(minLength: 0)
             }
-            .padding(12)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .containerBackground(for: .widget) { Color(.systemBackground) }

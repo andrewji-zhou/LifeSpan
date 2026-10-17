@@ -7,3 +7,4 @@ DerivedData/
 # Swift app secrets (copy Secrets.swift.example -> Secrets.swift)
 LifeSpan/Secrets.swift
 
+audit_report.csv
