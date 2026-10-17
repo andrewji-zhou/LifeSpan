@@ -1,0 +1,9 @@
+.DS_Store
+xcuserdata/
+DerivedData/
+*.xcuserstate
+.env
+
+# Swift app secrets (copy Secrets.swift.example -> Secrets.swift)
+LifeSpan/Secrets.swift
+
